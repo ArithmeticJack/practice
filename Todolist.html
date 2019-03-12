@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todolist</title>
+    <link href="Todolist.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <header>
+      <h2 style="font-family: 'Times New Roman'">My Todolist</h2>
+      <form>
+          <label for="Input"><strong>添加事件</strong></label>
+          <input id="Input" name="Input" type="text" placeholder="请输入待办事项" required>
+          <input id="reset" type="reset" value="重填">
+      </form>
+  </header>
+  <div id="things">
+      <p><strong>未完成：</strong><span id="todocount"></span></p>
+      <ol id="todolist"></ol>
+      <p><strong>已完成：</strong><span id="donecount"></span></p>
+      <ol id="donelist"></ol>
+  </div>
+  <div id="clear" style="text-align: center;">
+      <button id="clearbutton"><strong>全部清除</strong></button>
+  </div>
+</body>
+</html>
+<script type="text/javascript" src="Todolist.js"></script>

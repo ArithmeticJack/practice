@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的基本操作</title>
+    <script type="text/javascript">
+         // window.onload=function (ev) {
+         //
+         //    var fun = new Function ("" +         //使用构造器创建一个函数
+         //                   "alert(11);" +        //每条语句都要用引号引起来
+         //                               "");
+         //    fun();                               //调用函数
+         //
+         //
+         //     var fun01 = function (a,b) {        //使用函数表达式创建一个函数
+         //         alert(a);
+         //         alert(b);
+         //     };                                   //末尾要加分号
+         //     fun01(1,2);
+         //
+         //
+         //     console.log(ev);
+         // };
+         //
+         // function myFun(e) {                       //使用函数声明创建函数
+         //    alert(e);              //65465
+         //    alert(this);           //[object Window]
+         // }
+         // myFun(65465);  //此函数没有写到window.onload中，会被先调用
+        /*【创建函数的三种方法】
+        * 一、使用构造器 new Function
+        * 二、使用函数声明function hanshu(){}
+        * 三、使用函数表达式 var hanshu = function(){...};
+        * */
+    </script>
+</head>
+<body>
+<script type="text/javascript">
+    function fun02(a,b,c) {
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+    fun02(1,2,3,4,5,6);   //调用函数时，解析器不会检查实参的数量
+    fun02(1);             //如果实参少于形参，那么剩余的少出的那一部分实参将会是undefined
+</script>
+</body>
+</html>

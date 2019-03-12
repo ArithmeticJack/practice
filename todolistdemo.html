@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        td,table,tr{
+            border:1px solid #333;
+        }
+        table{
+            margin: 0 auto;
+        }
+        td{
+            padding: 0 20px 0;
+        }
+        button{
+            margin: 0 auto;
+        }
+    </style>
+
+    <script type="text/javascript">
+        window.onload=function(){
+            var bot = document.getElementById("tianjia");
+            bot.onclick=function(){
+                var nr=prompt();
+                document.getElementById("shijian").innerHTML=nr;
+            };
+            var wc=document.getElementById("wc1");
+            var wc2=document.getElementById("wc2");
+            wc.onclick=function(){
+                if(wc.checked===true)
+                {
+                    wc2.innerHTML="完成";
+                }
+                else
+                {
+                    wc2.innerHTML="未完成";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td><input type="checkbox" id="wc1"></td>
+        <td id="shijian"></td>
+        <td id="wc2">未完成</td>
+    </tr>
+</table>
+<button id="tianjia">添加</button>
+</body>
+</html>

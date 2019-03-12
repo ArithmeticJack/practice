@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>0126</title>
+    <script type="text/javascript">
+        window.onload=function (ev) {
+            // function fun() {
+            //     console.log(this.name);
+            // }
+            //
+            // var obj = {
+            //     name:"Alibb",
+            //     age:18,
+            //     sayName:fun
+            // };
+            // obj.sayName();
+
+            // function addPerson(name,age) {  //工厂模式创建对象
+            //     var obj = new Object();
+            //     obj.name = name;
+            //     obj.age = age;
+            //     obj.sayName = function () {
+            //         alert(this.name);
+            //     };
+            //     return obj;
+            // }
+            // var obj02 = addPerson("Tencent",20);
+            // console.log(typeof obj02);   //结果为object，不能区别对象的类型
+            // console.log(obj02);          //object
+            // obj02.sayName();
+            /*
+            * 工厂模式创建对象大大提高了代码的复用性，比较方便，但是不能区别对象的类型
+            * 而且如果函数中定义了对象的方法，那么每实例出一个对象，就会在内存中开辟空间来存储这个方法，比较占用资源
+            * */
+
+
+            // function Person(name, age, gender) {     //以构造函数的方式创建对象
+            //     this.name = name;   //以构造函数的方式调用时，this就是新建的那个对象
+            //     this.age = age;
+            //     this.gender = gender;
+            //     this.sayName = function () {
+            //         alert(this.name);
+            //     };
+            // }
+            // var Jack = new Person("tom", 22, "男"); //使用过构造函数来创建对象，优点：可以使用instanceof操作符来区分不同类的对象
+            // console.log(Jack instanceof Person);    //检查一个对象是否为一个构造函数的实例
+            // console.log(Jack.gender);
+            // Jack.sayName();
+            // Person.prototype.sayInfo = function () {  //通过原型为对象添加方法
+            //     alert("Hello大家好，我是"+this.name+",我今年"+this.age+"岁了！");  //当以方法的形式调用时，谁调用方法this就是谁
+            // };
+            //  var person01 = new Person("Jack", 21, "男");
+            //  var person02 = new Person("Rose", 18, "女");
+            // person01.sayInfo();
+            // person02.sayInfo();
+            // console.log("sayInfo" in person02);          //使用in检查符检查一个对象中是否含有指定属性时，如果对象的原型中有，也会返回true
+            // console.log(person02.hasOwnProperty("name"));//可使用hasOwnProperty方法来检查对象自身中是否含有指定属性
+            // console.log(person01);
+            // console.log(person01.toString());
+            // Person.prototype.toString = function () {     //利用原型重写toString方法
+            //     return "Hello大家好，我是"+this.name+",我今年"+this.age+"岁了！";
+            // };
+            // console.log(person01.toString());
+
+
+        //     function Dog(name, age) {             //利用原型创建对象
+        //           // this.name = name;
+        //           // this.age = age;
+        //     }
+        //     Dog.prototype.name = "dada";
+        //     Dog.prototype.age = 6;
+        //     Dog.prototype.age = this;              //当以函数的形式调用时，this为window。。。。
+        //     Dog.prototype.toString = function () { //当以方法的形式调用时，谁调用方法this就是谁
+        //         console.log("Hello大家好，我是"+this.name+",我今年"+this.age+"岁了！");
+        //     };
+        //     dog01 = new Dog("spot", 3);
+        //     console.log(dog01.name);   //mm
+        //     console.log(dog01.age);    //undefined
+        //     dog01.toString();                        //当以方法的形式调用时，谁调用方法this就是谁
+        // };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的基本操作</title>
+    <script type="text/javascript">
+        window.onload=function (ev) {
+            // var obj={
+            //     name:"孙悟空",
+            //     age:18,
+            //     gender:"男",
+            //     sayName:function () {  //为对象添加了一个方法
+            //         alert("12");
+            //     }
+            // };                     //用字面量的方法创建一个对象
+            // obj.home="花果山";     //添加一个对象的属性
+            // delete obj.age;        //删除一个对象的属性
+            // console.log(obj.home); //访问一个对象的属性
+            // obj.sayName();
+            // console.log("name" in obj);  //用in运算符检查一个对象中是否含有指定属性，有返回true，没有返回false
+            // console.log("nme" in obj);
+
+
+            // obj.var=1997;          //对象的属性名不强制要求遵守标识符的规范，但还是尽量按照标准
+            // obj.obj=321;
+            // console.log(obj.age);
+            // console.log(obj.var);
+            // console.log(obj.obj);
+            //
+            // var obj01={
+            //     name:"猪八戒",
+            //     'home':"高老庄"          //属性名可以加引号也可以不加，如果属性名为特殊字符则需要加引号，单双都可以
+            // };
+            // obj01["tool"]="九尺天耙";    //为对象添加属性的另一种方法，注意中间为等号
+            // console.log(obj01["home"]);  //访问属性的另一种方法
+            //
+            // var n="tool";
+            // console.log(obj01[n]);       //此方式访问属性时可以传一个变量，比较灵活
+            // console.log(obj01["tool"]);
+            // console.log(obj01.home);
+            // console.log(typeof obj01);
+            //
+            // var obj02=new Object();      //用构造器的方式创建一个对象
+            // obj02.music="yellow";
+            // console.log(typeof obj02);
+            // console.log(obj02.music);
+            //
+            // function Person(){            //定义一个类，用类的方法创建对象
+            //     this.name = "dongjc";     //通过this关键字设置默认成员
+            //     var worker = 'coding';    //没有this关键字，对象创建后，该变量为非成员
+            //     this.age = 32;
+            //     this.Introduce = function () {
+            //         alert("My name is " + this.name + ".I'm " + this.age);
+            //         };
+            //     alert("My name is " + this.name + ".I'm " + this.age);
+            //     alert(worker);
+            //     }
+            //     var person = new Person();//通过已经定义的类创建对象
+            // //alert(Person.worker);       //弹出结果为undefined
+            // //alert(worker);              //词条语句的执行不是在worker的局部作用域中，会产生引用错误Uncaught ReferenceError: worker is not defined
+            // person.Introduce();
+        };
+        //console.log(obj.home);         //第一个错误，obj的定义和使用被放在了两个完全独立的作用域导致引用错误
+
+        /*【总结】创建对象的方法有三种
+         * 一、使用字面量的方式
+         * 二、使用构造器的方式
+         * 三、先定义一个类，通过类来创建对象
+         * */
+    </script>
+</head>
+<body>
+<script type="text/javascript">
+    // var a = 10;
+    // b = a;
+    // b++;
+    // ++a;
+    // console.log(a);
+    // console.log(b);   //javascript的变量都是保存在栈内存中的，值于值之间相互独立，修改一个变量不会影响另一个变量
+
+    var obj03 = {
+        name:"白骨精",
+        home:"山洞",
+        age:18
+    };
+    for( var i in obj03){    //通过此方式可以枚举对象中的属性
+        console.log("属性名："+i);
+        console.log("属性值："+obj03[i]);//利用[ ]访问对象的属性值时可以传变量，所以这种方式较为灵活
+        console.log("属性值："+obj03.i); //如果这样访问，那么就是访问属性 i 的属性值，因为此属性没有定义，所以结果为undefined
+    }
+</script>
+</body>
+</html>

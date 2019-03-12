@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量和函数的声明提前</title>
+    <script type="text/javascript">
+        // var a = 54;
+        // function fun01() {      //变量的提前声明
+        //     //alert(sss);       //sss变量没有定义，会报错Uncaught ReferenceError: sss is not defined
+        //     alert(a);           //弹出的结果为undefined，原因是因为下一行中的变量 a 被声明提前，但变量只是被声明，没有被赋值
+        //     var a =1111111;     //变量 a 实际在函数作用域的顶部被声明，但是依旧是在这一行被赋值
+        //     alert(a);
+        // }
+        // fun01();
+
+        //函数的提前声明01
+        // fun02();                 //函数可以正确运行
+        // function fun02() {       //使用函数声明方式创建的函数其整个函数体都会被提前声明到当前作用域的顶部，所以即使在函数体之前也可以调用
+        //     alert("我是第二个函数！");
+        // }
+
+        //函数的提前声明02
+        //fun03();                     //报错 Uncaught TypeError: fun03 is not a function
+        // alert(fun03);               //弹出结果为 undefined
+        // var fun03 = function (e) {  //使用函数表达式创建的函数，其声明提前类似于变量的声明提前，只是被提前声明没有被赋值
+        //     alert(e);
+        // };
+
+        //直接编写在script标签中的代码都在全局作用域，全局作用域中有一个全局对象window
+        //全局作用域在页面打开时创建，在页面关闭时销毁
+        // var aba = "asdfasdfdf";
+        // window.fun03(321);        //全局作用域中的定义的函数会作为window对象的方法保存
+        // alert(window.aba);        //全局作用域中定义的变量都会作为window对象的属性保存
+
+        // var b = "abcd";
+        // function fun04() {
+        //     a = 1111111;
+        //     var b = 12345;
+        //     //alert(b);
+        //     //alert(window.b);         //在函数中访问同名全局变量可以在变量名前加window.
+        // }
+        // //fun04();                     //如果不调用函数而直接执行下一行会报错 Uncaught ReferenceError: a is not defined
+        // alert(a);                      //如果在调用函数后再执行这一句，那么弹出的结果将会是1111111
+
+        // var aaa = 11;
+        // function test4(){
+        //     var aaa = 22;
+        // }
+        // test4();
+        // console.log(aaa);  //11
+
+        // var abc = 11;
+        // function test4(){
+        //     abc = 22;
+        // }
+        // test4();
+        // console.log(abc);  //22
+
+        // function test4(){
+        //     var aaa = 22;
+        // }
+        // test4();
+        // console.log(aaa);   //ReferenceError: aaa is not defined
+
+        // function test4(){
+        //     var aaa = 22;
+        // }
+        // test4();
+        // console.log(test4.aaa);  //undefined
+        /*结论1: 函数或者对象构造内声明的变量是私有的. 外部无法访问到. 包括原型继承后的对象.*/
+
+        // function test4(){
+        //     bbb = 33;
+        // }
+        // test4();
+        // console.log(bbb);  //33
+        /*结论2: 不加var 在函数或者构造内就是赋值, 从函数内往上一层层寻找变量bbb,一直到顶层没有. 就在顶层声明一个 var bbb*/
+
+        // aaa = 654;
+        // console.log(aaa);  //654
+        // delete window.aaa; //没有var关键字时，为全局变量的一个属性，因此可以从全局变量中删除
+        // console.log(aaa);  //ReferenceError: aaa is not defined
+
+        // var ppp = 456;
+        // console.log(ppp);         //456
+        // console.log(window.ppp);  //456
+        // delete window.ppp;        //var变量声明自带不可删除属性,所以ppp变量不会被删除，后两行代码结果依旧是456
+        // console.log(ppp);         //456
+        // console.log(window.ppp);  //456
+
+        // var asd = 9999999;
+        // function fun06() {
+        //     var asd = 8888888;
+        //     function fun07() {
+        //         asd = 11111112;
+        //         console.log(asd);
+        //     }
+        //     fun07();
+        //     console.log(asd);
+        // }
+        // fun06();
+        // console.log(asd);
+        /*【结论】
+        * var num = 1；
+        *是在当前域中声明变量. 如果在方法中声明，则为局部变量（local variable）；
+        *如果是在全局域中声明，则为全局变量。
+        *而 num = 1；
+        *事实上是对属性赋值操作。
+        *首先，它会尝试在当前作用域链（如在方法中声明，则当前作用域链代表全局作用域和方法局部作用域etc。。。）中解析 num；
+        *如果在任何当前作用域链中找到num，则会执行对num属性赋值；
+        *如果没有找到num，它才会在全局对象（即当前作用域链的最顶层对象，如window对象）中创造num属性并赋值。
+        *注意！它并不是声明了一个全局变量，而是创建了一个全局对象的属性。
+        * */
+    </script>
+</head>
+<body>
+
+</body>
+</html>
